@@ -68,8 +68,12 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-
+Browser.site = 'https://onehella-boilerplate-mochachai.onrender.com/'
 suite('Functional Tests with Zombie.js', function () {
+  const browser = new Browser();
+  suiteSetup(function(done) {
+    return browser.visit('/', done);
+  });
   this.timeout(5000);
 
 
